@@ -41,7 +41,7 @@ public class RegistrationFormTest {
         $("#firstName").setValue(FirstName);
         $("#lastName").setValue(LastName);
         $("#userEmail").setValue(UserEmail);
-        $(byText(Gender)).click();
+        $("#genterWrapper").$(byText(Gender)).click();
         $("#userNumber").setValue(MobileNumber);
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption(MonthOfBirth);
