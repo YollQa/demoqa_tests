@@ -35,5 +35,7 @@ public class TextBoxTest {
         $("#output #email").shouldHave(text("yoll@mail.ru"));
         $("#output #currentAddress").shouldHave(text(CurrentAddress));
         $("#output #permanentAddress").shouldHave(text(PermanentAddress));
+
+        $(".react-datepicker__day--005:not(.react-datepicker__day--outside-month)").click(); // выбирает локатор, в котором есть только первая часть (css selector not)
     }
 }

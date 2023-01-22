@@ -22,47 +22,47 @@ public class RegistrationFormTest {
     @Test
     void fillRegistrationForm(){
 
-        String FirstName = "Petr";
-        String LastName = "Cherkasov";
-        String UserEmail = "petr_cherkasov@mail.ru";
-        String Gender = "Male";
-        String MobileNumber = "9876543210";
-        String MonthOfBirth = "June";
-        String YearOfBirth = "1980";
-        String DayOfBirth = "18";
-        String Subject_1 = "English";
-        String Subject_2 = "Computer Science";
-        String CurrentAddress = "Silicon Valley";
-        String State = "Rajasthan";
-        String City = "Jaipur";
+        String firstName = "Petr";
+        String lastName = "Cherkasov";
+        String userEmail = "petr_cherkasov@mail.ru";
+        String gender = "Male";
+        String mobileNumber = "9876543210";
+        String monthOfBirth = "June";
+        String yearOfBirth = "1980";
+        String dayOfBirth = "18";
+        String subject_1 = "English";
+        String subject_2 = "Computer Science";
+        String currentAddress = "Silicon Valley";
+        String state = "Rajasthan";
+        String city = "Jaipur";
 
         open("/automation-practice-form");
         $(".main-header").shouldHave(text("Practice Form"));
-        $("#firstName").setValue(FirstName);
-        $("#lastName").setValue(LastName);
-        $("#userEmail").setValue(UserEmail);
-        $("#genterWrapper").$(byText(Gender)).click();
-        $("#userNumber").setValue(MobileNumber);
+        $("#firstName").setValue(firstName);
+        $("#lastName").setValue(lastName);
+        $("#userEmail").setValue(userEmail);
+        $("#genterWrapper").$(byText(gender)).click();
+        $("#userNumber").setValue(mobileNumber);
         $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOption(MonthOfBirth);
-        $(".react-datepicker__year-select").selectOption(YearOfBirth);
-        $(byText(DayOfBirth)).click();
-        $("#subjectsInput").setValue(Subject_1).pressEnter();
-        $("#subjectsInput").setValue(Subject_2).pressEnter();
+        $(".react-datepicker__month-select").selectOption(monthOfBirth);
+        $(".react-datepicker__year-select").selectOption(yearOfBirth);
+        $(byText(dayOfBirth)).click();
+        $("#subjectsInput").setValue(subject_1).pressEnter();
+        $("#subjectsInput").setValue(subject_2).pressEnter();
         $(byText("Reading")).click();
         $(byText("Music")).click();
         $("#uploadPicture").uploadFile(new File("src/test/resources/photo.jpg"));
-        $("#currentAddress").setValue(CurrentAddress);
-        $("#react-select-3-input").setValue(State).pressEnter();
-        $("#react-select-4-input").setValue(City).pressEnter();
+        $("#currentAddress").setValue(currentAddress);
+        $("#react-select-3-input").setValue(state).pressEnter();
+        $("#react-select-4-input").setValue(city).pressEnter();
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         $("#submit").click();
         $(".modal-content").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text(FirstName + " " + LastName), (text(UserEmail)), (text(Gender)),
-                (text(MobileNumber)), (text(DayOfBirth + " " + MonthOfBirth + "," + YearOfBirth)),
-                (text(Subject_1 + "," + " " + Subject_2)), (text("Reading, Music")), (text("photo.jpg")),
-                (text(CurrentAddress)), (text(State + " " + City)));
+        $(".table-responsive").shouldHave(text(firstName + " " + lastName), (text(userEmail)), (text(gender)),
+                (text(mobileNumber)), (text(dayOfBirth + " " + monthOfBirth + "," + yearOfBirth)),
+                (text(subject_1 + "," + " " + subject_2)), (text("Reading, Music")), (text("photo.jpg")),
+                (text(currentAddress)), (text(state + " " + city)));
 
     }
 }
