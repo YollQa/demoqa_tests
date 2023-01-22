@@ -20,21 +20,21 @@ public class TextBoxTest {
     void feelFormTest() {
 
         String UserName = "Yoll";
-        String CurrentAddress = "Moscow, Prospekt Mira 109";
-        String PermanentAddress = "Himki, Beregovaya 6";
+        String currentAddress = "Moscow, Prospekt Mira 109";
+        String permanentAddress = "Himki, Beregovaya 6";
 
         open("/text-box");
         $(".main-header").shouldHave(text("Text Box"));
         $("#userName").setValue(UserName);
         $("#userEmail").setValue("yoll@mail.ru");
-        $("#currentAddress").setValue(CurrentAddress);
-        $("#permanentAddress").setValue(PermanentAddress);
+        $("#currentAddress").setValue(currentAddress);
+        $("#permanentAddress").setValue(permanentAddress);
         $("#submit").click();
         $("#output").shouldBe(visible);
         $("#output #name").shouldHave(text(UserName));
         $("#output #email").shouldHave(text("yoll@mail.ru"));
-        $("#output #currentAddress").shouldHave(text(CurrentAddress));
-        $("#output #permanentAddress").shouldHave(text(PermanentAddress));
+        $("#output #currentAddress").shouldHave(text(currentAddress));
+        $("#output #permanentAddress").shouldHave(text(permanentAddress));
 
         $(".react-datepicker__day--005:not(.react-datepicker__day--outside-month)").click(); // выбирает локатор, в котором есть только первая часть (css selector not)
     }
